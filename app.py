@@ -10,7 +10,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
+    return render_template('complete.html')
+    
+@app.route('/diagram')
+def diagram():
+    return render_template('diagram.html')
+    
+@app.route('/my_diagram')
+def my_diagram():
     return render_template('index.html')
+    
+@app.route('/complete')
+def complete():
+    return render_template('complete.html')
+    
+@app.route('/sensor')
+def sensor():
+    return render_template('sensor.html')
     
 @app.route('/house1', methods=['GET', 'POST'])
 def generate_house1():

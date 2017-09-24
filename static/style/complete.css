@@ -1,0 +1,122 @@
+#diagrams {
+    float: left;
+    
+    margin-top: 4em;
+    padding-left: 18.5vw;
+    padding-right: 18.5vw;
+    
+    width: 63vw;
+    height: 7vw;
+}
+
+.round {
+    float: left;
+    
+    height: 7vw;
+    width: 7vw;
+    
+    font-size: 4vw;
+    line-height: 7vw;
+    text-align: center;
+    
+    border-radius: 100em;
+    
+    background-color: #DDDDDD;
+    color: #EEEEEE;
+}
+
+.arrow {
+    float: left;
+    
+    height: 7vw;
+    width: 7vw;
+    
+    font-size: 4vw;
+    line-height: 7vw;
+    text-align: center;
+    
+    color: #DDDDDD;
+}
+
+#title {
+    float: left;
+    width: 100vw;
+    height: 4vw;
+    margin-top: 1em;
+    
+    text-align: center;
+    line-height: 4vw;
+    font-size: 4vw;
+    
+    opacity: 1;
+}
+
+#info {
+    float: left;
+    margin-top: 5em;
+    padding-left: 16vw;
+    padding-right: 16vw;
+    
+    opacity: 1;
+}
+
+.block {
+    float: left;
+    
+    height: 12vw;
+    width: 15vw;
+    
+    margin: 1vw;
+    
+    box-shadow: 0 0 5px #CCCCCC;
+    
+    background-color: white;
+}
+.cell {
+    width: 15vw;
+    height: 3vw;
+    
+    text-align: center;
+    line-height: 3vw;
+}
+#cell_title {
+    font-size: 1.5vw;
+    
+    background-color: #283B4D;
+    color: white;
+}
+#cell_value {
+    height: 2.95vw;
+    
+    font-size: 1vw;
+    border-bottom: 0.05vw double #DDDDDD;
+}
+#cell_position {
+    font-size: 1vw;
+}
+#cell_time {
+    font-size: 1vw;
+    
+    background-color: #4897CC;
+    color: white;
+}
+
+.button {
+    float: left;
+    
+    margin: 2em 24vw;
+    cursor: pointer;
+    
+    width: 20vw;
+    
+    height: 5vw;
+    
+    text-align: center;
+    line-height: 5vw;
+    font-size: 2vw;
+    
+    border-radius: 1vw;
+    
+    background-color: #5FC864;
+    color: white;
+}

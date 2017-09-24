@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Smart House - Complete Page</title>
+    
+    <link rel="stylesheet" href="../static/style/main.css">
+    <link rel="stylesheet" href="../static/style/complete.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="bar">
+        <a class="bar_links" id="main_barLink" href="/sensor">Sensors</a>
+        <a class="bar_links" id="news_barLink" href="/complete">Steps</a>
+        <a class="bar_links" id="support_barLink" href="/diagram">Diagram</a>
+    </div>
+    <div id="diagrams">
+        <div class="round" id="round_0">1</div>
+        <div class="arrow" id="arrow_0">→</div>
+        <div class="round" id="round_1">2</div>
+        <div class="arrow" id="arrow_1">→</div>
+        <div class="round" id="round_2">3</div>
+        <div class="arrow" id="arrow_2">→</div>
+        <div class="round" id="round_3">4</div>
+        <div class="arrow" id="arrow_3">→</div>
+        <div class="round" id="round_4">5</div>
+    </div>
+    <div id="title">3D-проект</div>
+    <div id="info">
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #1</div>
+            <div class="cell" id="cell_value">Daylight: 6%</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #2</div>
+            <div class="cell" id="cell_value">En. demand: 45 kWh/m2</div>
+            <div class="cell" id="cell_position">40.649839 -73.345289</div>
+            <div class="cell" id="cell_time">26.09.2017 16:50:12</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #3</div>
+            <div class="cell" id="cell_value">Energy supply: 80%</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #4</div>
+            <div class="cell" id="cell_value">Primary energy: 28 kWh/m2</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #5</div>
+            <div class="cell" id="cell_value">Environmental load: 5 kg/m2</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #6</div>
+            <div class="cell" id="cell_value">H2O: 40%</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #7</div>
+            <div class="cell" id="cell_value">Recycle material: 40%</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+        <div class="block">
+            <div class="cell" id="cell_title">Sensor #8</div>
+            <div class="cell" id="cell_value">FSC, PEFC wood: 90%</div>
+            <div class="cell" id="cell_position">40.741895 -73.989308</div>
+            <div class="cell" id="cell_time">24.09.2017 03:13:06</div>
+        </div>
+    </info>
+    <div class="button">Подтвердить</div>
+    
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        if(!sessionStorage.getItem("current_step")) sessionStorage.setItem("current_step", '1');
+        // var completes = parseInt(sessionStorage.getItem("current_step"));
+        var completes = 1;
+        check(completes);
+        
+        $('.button').click(function() {
+            completes += 1;
+            sessionStorage.setItem("current_step", completes);
+            check(completes);
+        })
+        
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        function randomDate(start, end) {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toUTCString();
+        }
+        
+        function check(completes) {
+            for(var i = 0; i < completes; i++) $("#round_"+i).css('backgroundColor', '#5FC864');
+            for(var i = 0; i < completes-1; i++) $("#arrow_"+i).css('color', '#5FC864');
+            
+            var title = '';
+            switch(completes) {
+                case 1: title = "3D-project"; break;
+                case 2: title = "Фундамент"; break;
+                case 3: title = "Каркас"; break;
+                case 4: title = "Инженерия"; break;
+                case 5: title = "Энергоффективность, герметичность"; break;
+                case 6: title = "Энергоффективность, герметичность";
+                        window.open("/my_diagram"); break;
+            }
+            $('#title').text(title)
+            
+            // First
+            $('#info .block:nth-child(1) #cell_value').text('Daylight: ' + getRandomInt(5, 15) + '%')
+            // Second
+            $('#info .block:nth-child(2) #cell_value').text('En. demand: ' + getRandomInt(30, 50) + ' kWh/m2')
+            // Third
+            $('#info .block:nth-child(3) #cell_value').text('Energy supply: ' + getRandomInt(70, 90) + '%')
+            // Fourth
+            $('#info .block:nth-child(4) #cell_value').text('Primary energy: ' + getRandomInt(25, 35) + ' kWh/m2')
+            // Fifth
+            $('#info .block:nth-child(5) #cell_value').text('Environmental load: ' + getRandomInt(5, 10) + ' kg/m2')
+            // Sixth
+            $('#info .block:nth-child(6) #cell_value').text('H2O: ' + getRandomInt(30, 50) + '%')
+            // Seventh
+            $('#info .block:nth-child(7) #cell_value').text('Recycle material: ' + getRandomInt(20, 100) + '%')
+            // Eights
+            $('#info .block:nth-child(8) #cell_value').text('FSC, PEFC wood: ' + getRandomInt(20, 90) + '%')
+            
+            // First
+            $('#info .block:nth-child(1) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Second
+            $('#info .block:nth-child(2) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Third
+            $('#info .block:nth-child(3) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Fourth
+            $('#info .block:nth-child(4) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Fifth
+            $('#info .block:nth-child(5) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Sixth
+            $('#info .block:nth-child(6) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Seventh
+            $('#info .block:nth-child(7) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            // Eights
+            $('#info .block:nth-child(8) #cell_time').text(randomDate(new Date(2017, 0, 1), new Date()))
+            
+            // First
+            $('#info .block:nth-child(1) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(2) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(3) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(4) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(5) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(6) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(7) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+            $('#info .block:nth-child(8) #cell_position').text('40.' + getRandomInt(100000, 999999) + ' - 73.' + getRandomInt(100000, 999999))
+        }
+    </script>
+</body>
+</html>
