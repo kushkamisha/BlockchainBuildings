@@ -1,10 +1,10 @@
 $('#one').click(function() {
-    $('#diagram').attr('src', '/static/img/1.png');
     $.ajax({
-		url: '/run',
+		url: '/house1',
 		type: 'POST',
 		success: function(response){
 			alert('Success: ' + response);
+			$('#diagram').attr('src', '/static/img/house1.png');
 		},
 		error: function(error){
 			console.log('Error: ' + error);
@@ -12,8 +12,28 @@ $('#one').click(function() {
 	});
 })
 $('#two').click(function() {
-    $('#diagram').attr('src', '/static/img/2.png');
+    $.ajax({
+		url: '/house2',
+		type: 'POST',
+		success: function(response){
+			alert('Success: ' + response);
+			$('#diagram').attr('src', '/static/img/house2.png');
+		},
+		error: function(error){
+			console.log('Error: ' + error);
+		}
+	});
 })
 $('#three').click(function() {
-    $('#diagram').attr('src', '/static/img/3.png');
+    $.ajax({
+		url: '/house3',
+		type: 'POST',
+		success: function(response){
+			alert('Success: ' + response);
+			$('#diagram').attr('src', '/static/img/house3.png');
+		},
+		error: function(error){
+			console.log('Error: ' + error);
+		}
+	});
 })
