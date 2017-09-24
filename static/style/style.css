@@ -1,0 +1,45 @@
+#diagram {
+    display: block;
+    margin: auto;
+    height: 95vh;
+    width: 95vh;
+}
+
+.house {
+    margin: auto;
+    width: 15vh;
+}
+
+#houses {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+
+    padding-top: 22.5vh;
+    
+    width: 15vh;
+    height: 100%;
+    
+    background-color: #F0F0F0;
+    box-shadow: 0 0 3px #AAAAAA;
+}
+
+#right {
+    position: absolute;
+    padding: 20px;
+    margin: 0;
+    top: 0;
+    right: 0;
+    left: 15vh;
+
+    width: auto;
+    height: 100%;
+
+    background-image: url("../img/back.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
