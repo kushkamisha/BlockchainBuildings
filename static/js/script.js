@@ -1,4 +1,4 @@
-// $('.loaderImage').hide();
+$('.loaderImage').hide();
 
 $('#one').click(function() {
 	$('.loaderImage').show();
@@ -7,7 +7,7 @@ $('#one').click(function() {
 		type: 'POST',
 		success: function(response){
 			// alert('Success: ' + response);
-			$('#diagram').attr('src', '/static/img/house1.png');
+			$('#diagram').attr('src', 'static/tmp/house' + response +'.png');
 			$('.loaderImage').hide();
 		},
 		error: function(error){
@@ -22,7 +22,7 @@ $('#two').click(function() {
 		type: 'POST',
 		success: function(response){
 			// alert('Success: ' + response);
-			$('#diagram').attr('src', '/static/img/house2.png');
+			$('#diagram').attr('src', 'static/tmp/house' + response +'.png');
 			$('.loaderImage').hide();
 		},
 		error: function(error){
@@ -37,7 +37,7 @@ $('#three').click(function() {
 		type: 'POST',
 		success: function(response){
 			// alert('Success: ' + response);
-			$('#diagram').attr('src', '/static/img/house3.png');
+			$('#diagram').attr('src', 'static/tmp/house' + response +'.png');
 			$('.loaderImage').hide();
 		},
 		error: function(error){
